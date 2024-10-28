@@ -9,20 +9,25 @@
     <Grid>
 
 
-        <TextBox Name="txtLogin" HorizontalContentAlignment="Center"  FontFamily="Roboto"  HorizontalAlignment="Left" Margin="86,101,0,0"
+        <TextBox  Name="txtLogin" HorizontalContentAlignment="Center" 
+                 FontFamily="Roboto"  HorizontalAlignment="Left" Margin="86,99,0,0"
                  TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="294" Height="24"/>
-        <Label  FontFamily="Roboto" FontWeight="Bold"   VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Login" HorizontalAlignment="Left" Margin="86,75,0,0" VerticalAlignment="Top" Width="294"/>
+       
+        <Label  FontFamily="Roboto" FontWeight="Bold" 
+                VerticalContentAlignment="Center" 
+               HorizontalContentAlignment="Center"  Content="Login" HorizontalAlignment="Left" Margin="86,75,0,0" VerticalAlignment="Top" Width="294"/>
 
 
         <Label  FontFamily="Roboto" FontWeight="Bold"   VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
                 Content="Senha" HorizontalAlignment="Left" Margin="86,136,0,0" VerticalAlignment="Top" Width="294" Height="24"/>
-        <TextBox  Name="txtSenha"  HorizontalContentAlignment="Center"   FontFamily="Roboto"  HorizontalAlignment="Left" Margin="86,162,0,0"
-            TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="294" Height="24"/>
 
+
+        <PasswordBox Name="txtSenha"  HorizontalContentAlignment="Center"   FontFamily="Roboto"  HorizontalAlignment="Left" Margin="86,162,0,0"
+          Password=""   VerticalAlignment="Top" Width="294" Height="24" />
 
         <Button Content="Entrar" FontFamily="Roboto" FontSize="16"
                 HorizontalAlignment="Left" Margin="86,219,0,0" VerticalAlignment="Top"
-                Width="294" Height="32" Name="btnEntrar" Click="btnEntrar_Click"/>
+                Width="294" Height="32" Name="btnEntrar"   Click="btnEntrar_Click"/>
 
 
 

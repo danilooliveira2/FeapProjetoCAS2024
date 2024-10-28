@@ -1,0 +1,22 @@
+﻿<Window x:Class="ProjetoAula.Cadastros.CadastroCliente"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjetoAula.Cadastros"
+        mc:Ignorable="d"
+        Title="CadastroCliente" Height="450" Width="600"  Background="BlueViolet">
+    <Grid>
+        <Button Name="btnCadastrar" Click="btnCadastrar_Click" Content="Cadastrar" HorizontalAlignment="Left" Margin="233,330,0,0" VerticalAlignment="Top" Height="47" Width="176" />
+        <TextBox Name="txtNome" HorizontalAlignment="Center" Margin="0,95,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="252"/>
+        <TextBox Name="txtEmail" HorizontalAlignment="Center" Margin="0,152,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="252" RenderTransformOrigin="0.507,-1.139"/>
+        <PasswordBox Name="txtSenha" HorizontalAlignment="Center" Margin="0,215,0,0"   VerticalAlignment="Top" Width="252" RenderTransformOrigin="0.507,-1.139"/>
+        <TextBox Name="txtCPF" HorizontalAlignment="Center" Margin="0,270,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="252" RenderTransformOrigin="0.507,-1.139"/>
+        <Label Foreground="White" Content="Nome" HorizontalAlignment="Left" Margin="174,69,0,0" VerticalAlignment="Top"/>
+        <Label  Foreground="White" Content="E-mail:" HorizontalAlignment="Left" Margin="174,126,0,0" VerticalAlignment="Top"/>
+        <Label  Foreground="White" Content="Senha:" HorizontalAlignment="Left" Margin="174,189,0,0" VerticalAlignment="Top"/>
+        <Label Foreground="White"  Content="CPF:" HorizontalAlignment="Left" Margin="174,244,0,0" VerticalAlignment="Top"/>
+        <Label Foreground="White" Content="Cadastar Cliente" HorizontalAlignment="Center" Margin="0,10,0,0"  FontSize="25" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
