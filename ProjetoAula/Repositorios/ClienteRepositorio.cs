@@ -89,17 +89,44 @@ namespace ProjetoAula.Repositorios
 
         public void InserirCliente(Cliente cliente)
         {
-            using (MySqlConnection conexao = new MySqlConnection(conexaoBancoDeDados))
+            //A variável sucesso guardará as informações sobre
+            //o número de linhas afetadas na execução do código  >> ExecuteNonQuery()  
+            //No caso de um cadastro, o esperado é que seja 1 linha
+            //(ou seja, 1 cadastro). Se for 0, é porque deu erro.
+            //Isso será convertido em TRUE ou FALSE nessa variável.
+            bool sucesso = false; ;
+
+            try
             {
-                conexao.Open();
-                MySqlCommand comando =
-                    new MySqlCommand("  INSERT INTO Cliente ( nome, email, senha) " +
-                                           "  VALUES (  @nome, @email, @senha )  ", conexao);
-                comando.Parameters.AddWithValue("@nome", cliente.Nome);
-                comando.Parameters.AddWithValue("@email", cliente.Email);
-                comando.Parameters.AddWithValue("@senha", cliente.Senha);
-                comando.ExecuteNonQuery();
-                comando.Dispose();
+                using (MySqlConnection conexao = new MySqlConnection(conexaoBancoDeDados))
+                {
+                    conexao.Open();
+                    MySqlCommand comando =
+                        new MySqlCommand("  INSERT INTO Cliente ( nome, email, senha) " +
+                                               "  VALUES (  @nome, @email, @senha )  ", conexao);
+                    comando.Parameters.AddWithValue("@nome", cliente.Nome);
+                    comando.Parameters.AddWithValue("@email", cliente.Email);
+                    comando.Parameters.AddWithValue("@senha", cliente.Senha);
+
+                    sucesso = comando.ExecuteNonQuery() > 0;
+
+                    comando.Dispose();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Atenção");
+            }
+
+
+            if (sucesso)
+            {
+                MessageBox.Show($"Cliente {cliente.Nome.Split(" ")[0]} cadastrado com sucesso.");
+            }else
+            {
+                MessageBox.Show($"Ocorreu um erro ao realizar o cadastro. \nVerifique os dados digitados e tente novamente.");
+
             }
 
         }

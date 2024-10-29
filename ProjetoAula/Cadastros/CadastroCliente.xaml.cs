@@ -31,26 +31,42 @@ namespace ProjetoAula.Cadastros
         private void btnCadastrar_Click(object sender, RoutedEventArgs e)
         {
 
+
+            //Chama a função que valida todos os campos,
+            //ou seja, verifica se foi tudo digitado da forma esperada pelo código.
             if (ValidarCampos())
             {
+                //Se todos os campos estão válidos, então chama a parte do BD que realizará o cadastro.
 
 
                 //Partes do Banco de Dados a seguir...
                 ClienteRepositorio cliRep = new ClienteRepositorio(Conexao.stringConexao);
 
+
+                //Cliente um instância de Cliente para preencher os dados das variáveis
+                //que serão utilizadas para o cadastro
                 Cliente clienteNovo = new Cliente();
 
                 clienteNovo.Nome = txtNome.Text;
-                clienteNovo.CPF = Convert.ToInt32( txtCPF.Text);
+                clienteNovo.CPF = Convert.ToInt64(txtCPF.Text); //Converte para número
                 clienteNovo.Senha = txtSenha.Password;
                 clienteNovo.Email = txtEmail.Text;
 
+
+                //Chama a função que realiza o cadastro.
                 cliRep.InserirCliente(clienteNovo);
+
+                //Após o cadastro, a janela deverá ser fechada.
+                //Ou então, os campos deverão ser limpos para permitir que
+                //a pessoa cadastre um novo cliente
+
+                //Limpa todos os campos
+                txtNome.Text = txtCPF.Text = txtSenha.Password = txtEmail.Text = String.Empty;
 
 
             }
 
-            
+
 
 
         }
@@ -60,7 +76,7 @@ namespace ProjetoAula.Cadastros
         {
             if (String.IsNullOrEmpty(txtNome.Text) || txtNome.Text.Length <= 3)
             {
-                txtNome.Focus();    
+                txtNome.Focus();
                 MessageBox.Show("O nome é muito curto ou inválido");
                 return false;
             }
@@ -86,8 +102,8 @@ namespace ProjetoAula.Cadastros
 
 
             if (String.IsNullOrEmpty(txtCPF.Text) || txtCPF.Text.Length < 9
-               ||  !BigInteger.TryParse( txtCPF.Text, out numeroCPF)  
-               
+               || !BigInteger.TryParse(txtCPF.Text, out numeroCPF)
+
                )
             {
                 txtCPF.Focus();

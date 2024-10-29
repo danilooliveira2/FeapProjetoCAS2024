@@ -42,6 +42,9 @@ namespace ProjetoAula
 
                 string senha = txtSenha.Password;
 
+                
+                
+                //Valida os campos, antes de passar para o Banco de Dados analisar se existe o cliente
 
                 if (String.IsNullOrEmpty(login) || login.Length < 3)
                 {
@@ -66,17 +69,26 @@ namespace ProjetoAula
 
 
 
-
+                //Cria o repositorio, que cria o cliente
                 ClienteRepositorio cliRep = new ClienteRepositorio(Conexao.stringConexao);
 
+                //Guarda o cliente logado, na janela chamada Principal.
+                //Assim, ficará centralizado nessa janela Principal os dados do usuário que entrou no sistema.
+                Principal.UsuarioLogado = cliRep.FazerLogin(login, senha);
 
-                usuarioLogado  =  cliRep.FazerLogin(login, senha);
+                //Se o cliente retornado, for diferente de nulo, 
+                //quer dizer que foi retornado corretamente os dados do usuário logado
+                //E foi atribuido em uma variável estática da janela Principal
+                //Assim, qualquer janela pode chamar o Principal.UsuarioLogado para pegar 
+                //Os dados do usuário, como o nome, ou ID.
+                if (Principal.UsuarioLogado != null)
+                {
 
+                    Principal janelaPrincipal = new Principal();
+                    this.Close();
+                    janelaPrincipal.Show();
 
-                Principal janelaPrincipal = new Principal();
-                this.Close();   
-                janelaPrincipal.Show();
-
+                }
 
                 //Próximos passos:
 

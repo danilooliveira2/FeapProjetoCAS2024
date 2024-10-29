@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,8 +9,8 @@ namespace ProjetoAula.Modelos
 {
 
 
-
-    internal class Cliente
+    //Alterar a classe para PUBLIC
+    public class Cliente
     {
 
         //Sobrecarga do método construtor do cliente
@@ -36,7 +37,7 @@ namespace ProjetoAula.Modelos
         public string Nome { get; set; }
         public string Email { get; set; }
         public string Senha { get; set; }
-        public int CPF { get; set; }
+        public BigInteger CPF { get; set; }
 
 
         //Comportamentos -> Ações / Funções / Métodos
