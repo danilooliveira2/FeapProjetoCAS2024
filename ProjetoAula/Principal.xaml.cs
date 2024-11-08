@@ -52,5 +52,14 @@ namespace ProjetoAula
             //poderá ser chamado o ShowDialog()
 
         }
+
+        private void btnConsultarCliente_Click(object sender, RoutedEventArgs e)
+        {
+
+            //Chama a janela de cadastro de cliente
+            ConsultaCliente janelaCadastroCliente = new ConsultaCliente();
+            janelaCadastroCliente.Show();
+
+        }
     }
 }

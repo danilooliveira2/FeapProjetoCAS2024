@@ -1,15 +1,8 @@
-﻿using ProjetoAula.Modelos;
+﻿using ProjetoAula.Cadastros;
+using ProjetoAula.Modelos;
 using ProjetoAula.Repositorios;
-using System.Text;
+using System;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace ProjetoAula
 {
@@ -19,12 +12,20 @@ namespace ProjetoAula
     public partial class MainWindow : Window
     {
 
+
         public MainWindow()
         {
             InitializeComponent();
+
+            //Quando abrir a tela de login
+            //vai dar o foco para o campo especificado abaixo
+            txtLogin.Focus();
         }
 
-      //public static  Cliente usuarioLogado;
+
+
+
+        //public static  Cliente usuarioLogado;
 
         private void btnEntrar_Click(object sender, RoutedEventArgs e)
         {
@@ -42,8 +43,8 @@ namespace ProjetoAula
 
                 string senha = txtSenha.Password;
 
-                
-                
+
+
                 //Valida os campos, antes de passar para o Banco de Dados analisar se existe o cliente
 
                 if (String.IsNullOrEmpty(login) || login.Length < 3)
@@ -107,7 +108,23 @@ namespace ProjetoAula
 
         }
 
+        private void txtSenha_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            //MessageBox.Show("código executado!");
+
+            if (e.Key == System.Windows.Input.Key.Enter)
+            {
+                //Executa o código de entrar somente quando
+                //a pessoa pressionou o enter
+
+                btnEntrar_Click(sender, null);
+
+            }
 
 
+
+
+
+        }
     }
 }

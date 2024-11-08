@@ -3,36 +3,48 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ProjetoAula"
+        xmlns:local="clr-namespace:ProjetoAula" 
         mc:Ignorable="d"
-        Title="Sistema de Aula de CSharp" Height="300" Width="500" Background="#f5ffe3" >
+        Title="Sistema de Aula de CSharp" Height="400" Width="500" Background="#f4f6f8" WindowStyle="None"   WindowStartupLocation="CenterScreen" >
     <Grid>
+        
+        
+        <!-- Background Card -->
+        <Border Background="White" CornerRadius="10" Padding="20" Margin="30"
+                >
+            <StackPanel HorizontalAlignment="Center">
+                <!-- Header Label -->
+                <Label FontFamily="Caveat" FontWeight="Bold" FontSize="28" Foreground="#2b2b2b"
+                       HorizontalAlignment="Center" Margin="0,0,0,15"
+                       Content="Sistema de Gestão de Aulas de CSharp" />
 
+                <!-- Login Label -->
+                <Label FontFamily="Roboto" FontWeight="Bold" FontSize="14" Foreground="#616161"
+                       Content="Login" HorizontalAlignment="Left" Margin="55,0,0,5" />
 
-        <TextBox  Name="txtLogin" HorizontalContentAlignment="Center" 
-                 FontFamily="Roboto"  HorizontalAlignment="Left" Margin="86,99,0,0"
-                 TextWrapping="Wrap" Text=""  VerticalAlignment="Top" Width="294" Height="24"/>
-       
-        <Label  FontFamily="Roboto" FontWeight="Bold" 
-                VerticalContentAlignment="Center" 
-               HorizontalContentAlignment="Center"  Content="Login" HorizontalAlignment="Left" Margin="86,75,0,0" VerticalAlignment="Top" Width="294"/>
+                <!-- Login TextBox -->
+                <TextBox Name="txtLogin" HorizontalContentAlignment="Left" FontFamily="Roboto"
+                         Margin="0,0,0,15" Padding="8,4" Width="260" Height="30"
+                         Background="#f7f8fa" BorderBrush="#c7c7c7" BorderThickness="1"
+                          />
 
+                <!-- Senha Label -->
+                <Label FontFamily="Roboto" FontWeight="Bold" FontSize="14" Foreground="#616161"
+                       Content="Senha" HorizontalAlignment="Left" Margin="55,0,0,5" />
 
-        <Label  FontFamily="Roboto" FontWeight="Bold"   VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
-                Content="Senha" HorizontalAlignment="Left" Margin="86,136,0,0" VerticalAlignment="Top" Width="294" Height="24"/>
+                <!-- Senha PasswordBox -->
+                <PasswordBox Name="txtSenha" HorizontalContentAlignment="Left" FontFamily="Roboto"
+                             Margin="0,0,0,15" Padding="8,4" Width="260" Height="30"
+                            KeyDown="txtSenha_KeyDown"  Background="#f7f8fa" BorderBrush="#c7c7c7" BorderThickness="1" 
+                            />
 
-
-        <PasswordBox Name="txtSenha"  HorizontalContentAlignment="Center"   FontFamily="Roboto"  HorizontalAlignment="Left" Margin="86,162,0,0"
-          Password=""   VerticalAlignment="Top" Width="294" Height="24" />
-
-        <Button Content="Entrar" FontFamily="Roboto" FontSize="16"
-                HorizontalAlignment="Left" Margin="86,219,0,0" VerticalAlignment="Top"
-                Width="294" Height="32" Name="btnEntrar"   Click="btnEntrar_Click"/>
-
-
-
-        <Label  FontFamily="Caveat"  FontWeight="Bold" FontSize="28"   VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Sistema de Gestão de Aulas de CSharp" HorizontalAlignment="Center" Margin="0,15,0,0" VerticalAlignment="Top" Width="440"/>
-
-
+                <!-- Entrar Button -->
+                <Button Content="Entrar" FontFamily="Roboto" FontSize="16" Foreground="White"
+                        Background="#5b8ef2" Width="260" Height="35" BorderBrush="#5b8ef2" Click="btnEntrar_Click"
+                        Margin="0,10,0,0" />
+                
+                
+            </StackPanel>
+        </Border>
     </Grid>
 </Window>

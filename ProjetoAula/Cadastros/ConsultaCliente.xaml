@@ -1,0 +1,42 @@
+﻿<Window x:Class="ProjetoAula.Cadastros.ConsultaCliente"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjetoAula.Cadastros"
+        mc:Ignorable="d"
+        Title="Consulta de Clientes" Background="LightPink" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="69*"/>
+            <RowDefinition Height="148*"/>
+        </Grid.RowDefinitions>
+        <Label FontSize="25"  Content="Consulta de Clientes" HorizontalAlignment="Center" Margin="0,31,0,0" VerticalAlignment="Top"/>
+        <Button Content="+ Adicionar Novo Cliente" HorizontalAlignment="Left" Margin="623,97,0,0" VerticalAlignment="Top" Height="30" Width="167" Click="Button_Click"/>
+       
+        <DataGrid
+            MouseDoubleClick="gridClientes_MouseDoubleClick"
+            AutoGenerateColumns="False"
+            CanUserAddRows="False"
+            CanUserReorderColumns="False"
+            CanUserDeleteRows="False"
+            CanUserResizeColumns="True"
+            Name="gridClientes"
+            Grid.RowSpan="2" 
+            Margin="0,138,0,10"  >
+
+            <DataGrid.Columns>
+
+                <DataGridTextColumn Header="ID"  Binding="{Binding ClienteID}"  Width="Auto"  Visibility="Visible" ></DataGridTextColumn>
+                <DataGridTextColumn Header="Nome do Cliente"  Binding="{Binding Nome}"  Width="Auto"  Visibility="Visible" ></DataGridTextColumn>
+                <DataGridTextColumn Header="E-mail"  Binding="{Binding Email}"  Width="Auto"  Visibility="Visible" ></DataGridTextColumn>
+                
+                
+            </DataGrid.Columns>
+            
+
+
+        </DataGrid>
+
+    </Grid>
+</Window>

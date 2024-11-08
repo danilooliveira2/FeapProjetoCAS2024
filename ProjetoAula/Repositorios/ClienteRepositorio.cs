@@ -87,6 +87,35 @@ namespace ProjetoAula.Repositorios
 
 
 
+        //Lista de Clientes
+        public List<Cliente> GetClientes()
+        {
+
+            List<Cliente> listaClientes = new List<Cliente>();
+            using (MySqlConnection conexao = new MySqlConnection(conexaoBancoDeDados))
+            {
+                conexao.Open();
+                MySqlCommand comando =
+                    new MySqlCommand("  SELECT * FROM Cliente  ", conexao);
+
+                using (MySqlDataReader reader = comando.ExecuteReader())
+
+                    while (reader.Read())
+                        listaClientes.Add(new Cliente
+                        {
+                            ClienteID = reader.GetInt32("ClienteID"),
+                            Nome = reader.GetString("Nome"),
+                            Email = reader.GetString("Email"),
+                            Senha = reader.GetString("Senha"),
+                        });
+
+            }
+            return listaClientes;
+        }
+
+
+
+
         public void InserirCliente(Cliente cliente)
         {
             //A variável sucesso guardará as informações sobre
@@ -123,7 +152,8 @@ namespace ProjetoAula.Repositorios
             if (sucesso)
             {
                 MessageBox.Show($"Cliente {cliente.Nome.Split(" ")[0]} cadastrado com sucesso.");
-            }else
+            }
+            else
             {
                 MessageBox.Show($"Ocorreu um erro ao realizar o cadastro. \nVerifique os dados digitados e tente novamente.");
 
